@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Magical Disney Store | Shopping Cart</title>
+    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/cart.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <div class="logo"><i class="fas fa-magic"></i> Disney Store</div>
+      <nav class="navbar">
+        <a href="index.html">Home</a>
+        <a href="#cartoon-section">Products</a>
+        <a href="#hot-deals-section">Hot Deals</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact Us</a>
+      </nav>
+      <div class="icons">
+        <i class="fas fa-search"></i>
+        <a href="cart.html" class="cart-icon">
+          <i class="fas fa-shopping-cart"></i>
+          <span class="cart-count">0</span>
+        </a>
+        <i class="fas fa-user-circle"></i>
+      </div>
+    </header>
+
+    <main class="cart-page-content">
+      <h1 class="page-title">Your Magical Cart</h1>
+
+      <div class="cart-layout">
+        <section class="cart-items-section">
+          <table>
+            <thead>
+              <tr>
+                <th>Product</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total</th>
+                <th>Remove</th>
+              </tr>
+            </thead>
+            <tbody id="cartItems">
+              <!-- Items will be dynamically inserted here -->
+            </tbody>
+          </table>
+        </section>
+
+        <section class="cart-summary-section">
+          <div class="summary-box">
+            <h2>Order Summary</h2>
+            <div class="summary-line">
+              <span>Subtotal:</span>
+              <span class="subtotal-amount">$0.00</span>
+            </div>
+            <div class="summary-line">
+              <span>Shipping:</span>
+              <span class="shipping-amount">Free</span>
+            </div>
+            <div class="summary-line total-line">
+              <span class="total-text">Grand Total:</span>
+              <span class="total-amount">$0.00</span>
+            </div>
+            <button class="btn checkout-btn">Proceed to Checkout</button>
+            <a href="index.html#cartoon-section" class="continue-shopping">
+              <i class="fas fa-arrow-left"></i> Continue Shopping
+            </a>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#cartoon-section">Shop Products</a></li>
+            <li><a href="about.html">Our Story</a></li>
+            <li><a href="contact.html">Customer Service</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Follow Us</h4>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Contact Info</h4>
+          <p>Email: support@disneystore.com</p>
+          <p>Phone: +1 (800) 123-4567</p>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>&copy; 2025 The Magical Disney Store. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script>
+      const cartItemsContainer = document.getElementById("cartItems");
+      const subtotalEl = document.querySelector(".subtotal-amount");
+      const totalEl = document.querySelector(".total-amount");
+      const cartCountEl = document.querySelector(".cart-count");
+      const checkoutBtn = document.querySelector(".checkout-btn");
+
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+      function updateCartDisplay() {
+        cartItemsContainer.innerHTML = "";
+        let subtotal = 0;
+
+        cart.forEach((item, index) => {
+          const totalPrice = item.price * item.quantity;
+          subtotal += totalPrice;
+
+          const row = document.createElement("tr");
+          row.innerHTML = `
+            <td class="product-info">
+              <img src="${item.image}" alt="${item.name}" />
+              <div class="details">
+                <h4>${item.name}</h4>
+                <p>Character: ${item.character || "N/A"}</p>
+              </div>
+            </td>
+            <td>$${item.price.toFixed(2)}</td>
+            <td class="quantity-control">
+              <input type="number" value="${
+                item.quantity
+              }" min="1" max="10" data-index="${index}" />
+            </td>
+            <td>$${totalPrice.toFixed(2)}</td>
+            <td class="remove-item" data-index="${index}">
+              <i class="fas fa-trash-alt"></i>
+            </td>
+          `;
+          cartItemsContainer.appendChild(row);
+        });
+
+        subtotalEl.textContent = `$${subtotal.toFixed(2)}`;
+        totalEl.textContent = `$${subtotal.toFixed(2)}`;
+        cartCountEl.textContent = cart.reduce(
+          (acc, item) => acc + item.quantity,
+          0
+        );
+      }
+
+      // Update quantity
+      cartItemsContainer.addEventListener("change", (e) => {
+        if (e.target.tagName === "INPUT") {
+          const index = e.target.dataset.index;
+          cart[index].quantity = parseInt(e.target.value);
+          localStorage.setItem("cart", JSON.stringify(cart));
+          updateCartDisplay();
+        }
+      });
+
+      // Remove item
+      cartItemsContainer.addEventListener("click", (e) => {
+        if (e.target.closest(".remove-item")) {
+          const index = e.target.closest(".remove-item").dataset.index;
+          cart.splice(index, 1);
+          localStorage.setItem("cart", JSON.stringify(cart));
+          updateCartDisplay();
+        }
+      });
+
+      // Checkout
+      checkoutBtn.addEventListener("click", () => {
+        if (cart.length === 0) {
+          alert("Your cart is empty!");
+          return;
+        }
+        alert("Thank you for your purchase!");
+        cart = [];
+        localStorage.setItem("cart", JSON.stringify(cart));
+        updateCartDisplay();
+      });
+
+      // Initialize
+      updateCartDisplay();
+    </script>
+  </body>
+</html>

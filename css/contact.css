@@ -1,0 +1,158 @@
+/* Note: Inherits general styles and variables from index.css */
+
+/* --- Contact Hero Section --- */
+.contact-hero {
+  height: 30vh;
+  background: url("https://via.placeholder.com/1500x300/e91e63/FFFFFF?text=Get+In+Touch+Banner")
+    center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  margin-top: -1px;
+}
+
+.contact-hero .overlay {
+  background-color: rgba(136, 14, 79, 0.6); /* Dark pink overlay */
+}
+
+.contact-hero h1 {
+  font-size: 3rem;
+  color: var(--white);
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.contact-hero p {
+  font-size: 1.1rem;
+  color: var(--pink-200);
+}
+
+/* --- Main Contact Layout --- */
+.contact-page-content {
+  padding: 60px 5%;
+}
+
+.contact-container-full {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: var(--white);
+  border-radius: 15px;
+  box-shadow: var(--shadow-medium);
+  overflow: hidden;
+  flex-wrap: wrap;
+}
+
+.contact-form-section {
+  flex: 2; /* Form takes more space */
+  padding: 40px;
+  background-color: var(--pink-50); /* Light pink background for the form */
+}
+
+.info-map-section {
+  flex: 1.5; /* Info and map takes slightly less space */
+  padding: 40px;
+  background-color: var(--white);
+}
+
+/* --- Section Titles --- */
+.contact-form-section h2,
+.info-map-section h2 {
+  font-size: 2rem;
+  color: var(--pink-700);
+  margin-bottom: 10px;
+  border-bottom: 2px solid var(--pink-200);
+  padding-bottom: 5px;
+  display: inline-block;
+}
+
+.section-subtitle {
+  color: var(--grey-700);
+  margin-bottom: 30px;
+}
+
+/* --- Form Styling (Reusing index.css form styles) --- */
+.contact-form .form-group {
+  margin-bottom: 20px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  /* Inherited styles from index.css for input/textarea */
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--grey-300);
+  border-radius: 5px;
+}
+
+.submit-btn {
+  width: 100%;
+  margin-top: 10px;
+}
+
+/* --- Info Blocks Styling --- */
+.info-blocks-wrapper {
+  margin-bottom: 30px;
+}
+
+.info-block-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  gap: 15px;
+}
+
+.info-block-item i {
+  font-size: 1.5rem;
+  color: var(--pink-500);
+  margin-top: 5px;
+}
+
+.info-details {
+  padding-top: 5px;
+}
+
+.info-title {
+  font-size: 1.1rem;
+  color: var(--pink-700);
+  margin-bottom: 2px;
+  font-weight: 600;
+}
+
+.info-details p {
+  font-size: 0.95rem;
+  color: var(--grey-700);
+}
+
+/* --- Map Placeholder --- */
+.map-placeholder {
+  height: 250px;
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: var(--shadow-light);
+}
+.map-placeholder iframe {
+  display: block;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 992px) {
+  .contact-container-full {
+    flex-direction: column;
+  }
+  .contact-form-section,
+  .info-map-section {
+    padding: 30px;
+  }
+}
+@media (max-width: 600px) {
+  .contact-hero h1 {
+    font-size: 2.5rem;
+  }
+  .contact-form-section h2,
+  .info-map-section h2 {
+    font-size: 1.8rem;
+  }
+}

@@ -1,0 +1,1418 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Disney Products</title>
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/products.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <div class="logo"><i class="fas fa-magic"></i> Disney Store</div>
+      <nav class="navbar">
+        <a href="index.html">Home</a>
+        <a href="#cartoon-section">Products</a>
+        <a href="#hot-deals-section">Hot Deals</a>
+        <a href="aboutus.html">About Us</a>
+        <a href="contact.html">Contact Us</a>
+      </nav>
+      <div class="icons">
+        <i class="fas fa-search"></i>
+        <a href="cart.html" class="cart-icon">
+          <i class="fas fa-shopping-cart"></i>
+        </a>
+        <i class="fas fa-user-circle"></i>
+      </div>
+    </header>
+    <div class="filter-controls">
+      <h2 class="filter-heading">Choose a Category:</h2>
+      <button
+        class="filter-btn active chosenBtn"
+        data-type="toys"
+        onclick="filterProducts('toys', this)"
+      >
+        <i class="fas fa-cube"></i> Toys
+      </button>
+      <button
+        class="filter-btn"
+        data-type="apparel"
+        onclick="filterProducts('apparel', this)"
+      >
+        <i class="fas fa-tshirt"></i> Clothes
+      </button>
+    </div>
+    <!-- Cartoon Title -->
+    <main>
+      <h2
+        id="cartoonTitle"
+        style="text-align: center; margin: 20px 0; color: #d81b60"
+      ></h2>
+      <div class="products-grid" id="productsContainer"></div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#cartoon-section">Shop Products</a></li>
+            <li><a href="about.html">Our Story</a></li>
+            <li><a href="contact.html">Customer Service</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Follow Us</h4>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Contact Info</h4>
+          <p>Email: support@disneystore.com</p>
+          <p>Phone: +1 (800) 123-4567</p>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>&copy; 2025 The Magical Disney Store. All rights reserved.</p>
+      </div>
+    </footer>
+    <script>
+      const productsData = {
+        toys: {
+          toystory: [
+            {
+              name: "Buzz Lightyear",
+              img: "media/toystory/Buzz.jpg",
+              price: "$38.73",
+            },
+            {
+              name: "Woody",
+              img: "media/toystory/woody.jpeg",
+              price: "$17.94",
+            },
+            {
+              name: "Jessie",
+              img: "media/toystory/jessie.jpeg",
+              price: "$19.69",
+            },
+            {
+              name: "Mrs.Potato",
+              img: "media/toystory/mrspotato.jpeg",
+              price: "$28.35",
+            },
+            {
+              name: "Mr.potato",
+              img: "media/toystory/potato.jpeg",
+              price: "$29.14",
+            },
+            {
+              name: "Slinky Dog",
+              img: "media/toystory/dog.jpeg",
+              price: "$23.24",
+            },
+            {
+              name: "Bullseye",
+              img: "media/toystory/horse.jpeg",
+              price: "$35.32",
+            },
+            {
+              name: "Three Aliens",
+              img: "media/toystory/aliens.jpeg",
+              price: "$35.59",
+            },
+            {
+              name: "Bo Peep and Officer Giggle",
+              img: "media/toystory/Bo Peep and Officer Giggle .jpeg",
+              price: "$17.94",
+            },
+            {
+              name: "Bo Peep",
+              img: "media/toystory/Bo Peep.jpeg",
+              price: "$17.94",
+            },
+            { name: "Buzz", img: "media/toystory/Buzz.jpeg", price: "$17.94" },
+            {
+              name: "Jessie",
+              img: "media/toystory/Jessie.jpeg",
+              price: "$17.94",
+            },
+            {
+              name: "Scared Forky",
+              img: "media/toystory/Scared Forky .jpeg",
+              price: "$17.94",
+            },
+            {
+              name: "Stinky Pete",
+              img: "media/toystory/Stinky Pete.jpeg",
+              price: "$17.94",
+            },
+            {
+              name: "Woody",
+              img: "media/toystory/Woody.jpeg",
+              price: "$17.94",
+            },
+          ],
+
+          insideout: [
+            { name: "Joy", img: "media/insideout/joy.jpeg", price: "$32.41" },
+            {
+              name: "Sadness",
+              img: "media/insideout/sad.jpeg",
+              price: "$23.83",
+            },
+            {
+              name: "Anger",
+              img: "media/insideout/anger.jpeg",
+              price: "$26.37",
+            },
+            {
+              name: "Disgust",
+              img: "media/insideout/disgust.jpeg",
+              price: "$23.98",
+            },
+            {
+              name: "Embarrassment",
+              img: "media/insideout/embarrest.jpeg",
+              price: "$38.47",
+            },
+            {
+              name: "Anxiety",
+              img: "media/insideout/anxiety.jpeg",
+              price: "$33.61",
+            },
+            {
+              name: "Inside Out Joy",
+              img: "media/insideout/Inside Out Joy.jpeg",
+              price: "$30.15",
+            },
+            {
+              name: "Inside Out Ennui ",
+              img: "media/insideout/Inside Out Ennui .jpeg",
+              price: "$16.64",
+            },
+            { name: "Fear", img: "media/insideout/Fear.jpeg", price: "$21.19" },
+            { name: "Envy", img: "media/insideout/Envy.jpeg", price: "$13.28" },
+            {
+              name: "Bing Bong",
+              img: "media/insideout/Bing Bong.jpeg",
+              price: "$16.89",
+            },
+          ],
+
+          frozen: [
+            { name: "Elsa", img: "media/frozen/elsa.jpg", price: "$25.99" },
+            { name: "Anna", img: "media/frozen/anna.jpeg", price: "$21.49" },
+            { name: "Olaf", img: "media/frozen/olaf.jpeg", price: "$18.75" },
+            {
+              name: "Kristoff",
+              img: "media/frozen/kristoff.jpeg",
+              price: "$22.30",
+            },
+            {
+              name: "Elsa and Anna",
+              img: "media/frozen/elsaanna.jpeg",
+              price: "$28.00",
+            },
+            {
+              name: "Frozen",
+              img: "media/frozen/frozen.jpeg",
+              price: "$19.95",
+            },
+            {
+              name: "Princess Anna",
+              img: "media/frozen/Anna.jpeg",
+              price: "$23.10",
+            },
+            {
+              name: "Princess Elsa",
+              img: "media/frozen/Elsa.jpeg",
+              price: "$24.85",
+            },
+            {
+              name: "Kristoff",
+              img: "media/frozen/Kristoff.jpeg",
+              price: "$20.99",
+            },
+            {
+              name: "Mattias",
+              img: "media/frozen/Mattias Vinyl.jpeg",
+              price: "$26.75",
+            },
+            { name: "Olaf", img: "media/frozen/Olaf.jpeg", price: "$18.60" },
+            { name: "Sven", img: "media/frozen/Sven.jpeg", price: "$27.40" },
+            {
+              name: "Young Anna",
+              img: "media/frozen/Young Anna .jpeg",
+              price: "$21.25",
+            },
+            {
+              name: "Young Elsa",
+              img: "media/frozen/Young Iisa.jpeg",
+              price: "$22.55",
+            },
+          ],
+
+          barbie: [
+            {
+              name: "Barbie and Ken",
+              img: "media/barbie/Barbie and Ken Love Disney.jpeg",
+              price: "$24.99",
+            },
+            {
+              name: "Barbie Careers Doctor",
+              img: "media/barbie/Barbie Careers Doctor.jpeg",
+              price: "$27.50",
+            },
+            {
+              name: "Barbie Doll",
+              img: "media/barbie/Barbie Dolls.jpeg",
+              price: "$18.00",
+            },
+            {
+              name: "Barbie Dream House",
+              img: "media/barbie/Barbie Dream House .jpeg",
+              price: "$29.99",
+            },
+            {
+              name: "Barbie house",
+              img: "media/barbie/Barbie house Playset .jpeg",
+              price: "$25.50",
+            },
+            {
+              name: "Barbie in iceland",
+              img: "media/barbie/barbie in iceland.jpeg",
+              price: "$19.25",
+            },
+            {
+              name: "Barbie in kitchen",
+              img: "media/barbie/barbie in kitchen.jpeg",
+              price: "$20.75",
+            },
+            {
+              name: "Barbie Princess Power Super Sparkle Doll",
+              img: "media/barbie/Barbie Princess Power Super Sparkle Doll.jpeg",
+              price: "$23.00",
+            },
+            {
+              name: "Barbie Travel Doll",
+              img: "media/barbie/Barbie Travel Doll .jpeg",
+              price: "$21.50",
+            },
+            {
+              name: "Barbie Mermaid",
+              img: "media/barbie/Barbie's Mermaid Magic_ Vibrant Accessories  Playful Style.jpeg",
+              price: "$28.50",
+            },
+            {
+              name: "Barbie Fashion",
+              img: "media/barbie/Rare Pink Boxed Barbie.jpeg",
+              price: "$22.75",
+            },
+          ],
+
+          incredibles: [
+            {
+              name: "Mr. Incredible",
+              img: "media/incredibles/Funko Pop.jpeg",
+              price: "$14.99",
+            },
+            {
+              name: "Elastigirl",
+              img: "media/incredibles/Mrs.incredible.jpeg",
+              price: "$12.50",
+            },
+            {
+              name: "Dash",
+              img: "media/incredibles/Dash.jpeg",
+              price: "$11.99",
+            },
+            {
+              name: "Violet",
+              img: "media/incredibles/Violet.jpeg",
+              price: "$11.99",
+            },
+            {
+              name: "Violet",
+              img: "media/incredibles/Violeet.jpeg",
+              price: "$10.99",
+            },
+            {
+              name: "Jack-Jack",
+              img: "media/incredibles/Jack jack attacks .jpeg",
+              price: "$9.99",
+            },
+            {
+              name: "Edna E Mode",
+              img: "media/incredibles/Edna E Mode.jpeg",
+              price: "$13.75",
+            },
+            {
+              name: "Mrs. Incredible",
+              img: "media/incredibles/Incredibles 2 Elastigirl 11.jpeg",
+              price: "$14.50",
+            },
+            {
+              name: "Frozen",
+              img: "media/incredibles/Jucarii.jpeg",
+              price: "$8.99",
+            },
+            {
+              name: "Mr. Incredible",
+              img: "media/incredibles/Mr Incredible .jpeg",
+              price: "$15.99",
+            },
+            {
+              name: "Mr. Incredible",
+              img: "media/incredibles/Mr_ Incredible .jpeg",
+              price: "$15.49",
+            },
+            {
+              name: "Mrs. Incredible",
+              img: "media/incredibles/Mr.incredible.jpeg",
+              price: "$13.25",
+            },
+            {
+              name: "The Incredibles Family",
+              img: "media/incredibles/The Incredibles  Family.jpeg",
+              price: "$19.99",
+            },
+            {
+              name: "The Incredibles",
+              img: "media/incredibles/The Incredibles .jpeg",
+              price: "$18.75",
+            },
+            {
+              name: "The Incredibles Family-2",
+              img: "media/incredibles/The Incredibles 2 Family .jpeg",
+              price: "$20.99",
+            },
+          ],
+
+          trolls: [
+            {
+              name: "Poppy Hair Designer",
+              img: "media/trolls/poppy hair.jpeg",
+              price: "$12.99",
+            },
+            {
+              name: "Branch",
+              img: "media/trolls/branch.jpeg",
+              price: "$10.99",
+            },
+            {
+              name: "cetim and chenille",
+              img: "media/trolls/cetim and chenille.jpeg",
+              price: "$13.50",
+            },
+            {
+              name: "Guy Diamond",
+              img: "media/trolls/Guy Diamond.jpeg",
+              price: "$11.25",
+            },
+            {
+              name: "DJ Suki",
+              img: "media/trolls/Dj suki.jpeg",
+              price: "$10.50",
+            },
+            {
+              name: "Bridget",
+              img: "media/trolls/bridget.jpeg",
+              price: "$9.99",
+            },
+            {
+              name: "Poppy and Branch",
+              img: "media/trolls/poppyand branch.jpeg",
+              price: "$15.99",
+            },
+            {
+              name: "Trolls master game",
+              img: "media/trolls/trolls master game.jpeg",
+              price: "$19.99",
+            },
+            { name: "Poppy", img: "media/trolls/poppy.jpeg", price: "$10.99" },
+            {
+              name: "Trolls-Rock-Star",
+              img: "media/trolls/rockstar.jpeg",
+              price: "$13.99",
+            },
+          ],
+
+          encanto: [
+            {
+              name: "Encanto Doll",
+              img: "media/encanto/Encanto Doll .jpeg",
+              price: "$14.99",
+            },
+            {
+              name: "Isabela Hair Play Doll",
+              img: "media/encanto/Isabela Hair Play Doll – Encanto.jpeg",
+              price: "$15.50",
+            },
+            {
+              name: "Luisa Doll",
+              img: "media/encanto/Lusia Doll.jpeg",
+              price: "$13.75",
+            },
+            {
+              name: "Disney Encanto Toy Doll Gift Set - Mirabel, Isabela, Luisa & Antonio",
+              img: "media/encanto/Disney Encanto Toy Doll Gift Set - Mirabel, Isabela, Luisa & Antonio.jpeg",
+              price: "$29.99",
+            },
+            {
+              name: "Encanto-Muñeca Dolores",
+              img: "media/encanto/Encanto Muñeca Dolores.jpeg",
+              price: "$12.99",
+            },
+            {
+              name: "Singing Sisters Mirabel and Isabela",
+              img: "media/encanto/Encanto Singing Sisters Mirabel and Isabela.jpeg",
+              price: "$22.99",
+            },
+            {
+              name: "Isabela",
+              img: "media/encanto/Isabela.jpeg",
+              price: "$11.99",
+            },
+            {
+              name: "Mirabel & Pico",
+              img: "media/encanto/Mirabel & Pico.jpeg",
+              price: "$13.25",
+            },
+            {
+              name: "Mirabel Doll & Antonio with Coati & Toucan",
+              img: "media/encanto/Mirabel Doll & Antonio with Coati & Toucan.jpeg",
+              price: "$18.75",
+            },
+            {
+              name: "Mirabel Doll",
+              img: "media/encanto/MirabelDoll.jpeg",
+              price: "$12.50",
+            },
+            {
+              name: "The Madrigal Family",
+              img: "media/encanto/The Madrigal Family .jpeg",
+              price: "$25.99",
+            },
+          ],
+
+          MICKEYMOUSE: [
+            {
+              name: "Cinderella Castle with Mickey Mouse",
+              img: "media/Mickey/Cinderella Castle with Mickey Mouse.jpeg",
+              price: "$24.99",
+            },
+            {
+              name: "Daisy Duck",
+              img: "media/Mickey/Daisy Duck .jpeg",
+              price: "$11.99",
+            },
+            {
+              name: "Gold Glitter Mickey Mouse",
+              img: "media/Mickey/Gold Glitter Mickey Mouse .jpeg",
+              price: "$13.50",
+            },
+            {
+              name: "Donald Duck",
+              img: "media/Mickey/Donald Duck.jpeg",
+              price: "$10.99",
+            },
+            {
+              name: "Ice Skating Mickey Mouse",
+              img: "media/Mickey/Ice Skating Mickey Mouse.jpeg",
+              price: "$12.75",
+            },
+            {
+              name: "Mickey Mouse en tigre",
+              img: "media/Mickey/Mickey Mouse en tigre.jpeg",
+              price: "$14.25",
+            },
+            {
+              name: "Minnie Mouse",
+              img: "media/Mickey/Minnie Mouse .jpeg",
+              price: "$11.50",
+            },
+            { name: "Pluto", img: "media/Mickey/Pluto.jpeg", price: "$10.25" },
+            {
+              name: "Santa Goofy",
+              img: "media/Mickey/Santa Goofy .jpeg",
+              price: "$13.99",
+            },
+            { name: "Webby", img: "media/Mickey/Webby.jpeg", price: "$9.99" },
+            {
+              name: "Sorcerer Mickey",
+              img: "media/Mickey/Sorcerer Mickey.jpeg",
+              price: "$16.50",
+            },
+          ],
+
+          DisneyPrincess: [
+            {
+              name: "Alice Funko Pop",
+              img: "media/Princess/Alice Falling Funko Pop!.jpeg",
+              price: "$14.25",
+            },
+            {
+              name: "Arial ",
+              img: "media/Princess/Arial.jpeg",
+              price: "$12.50",
+            },
+            {
+              name: "Aurora ",
+              img: "media/Princess/Aurora Pop! Figurine.jpeg",
+              price: "$13.75",
+            },
+            {
+              name: "Belle ",
+              img: "media/Princess/Belle Glitter Funko Pop.jpeg",
+              price: "$15.25",
+            },
+            {
+              name: "Mulan ",
+              img: "media/Princess/Comfy Mulan.jpeg",
+              price: "$12.99",
+            },
+            {
+              name: "Rapunzel ",
+              img: "media/Princess/Comfy Rapunzel.jpeg",
+              price: "$12.99",
+            },
+            {
+              name: "Cinderella ",
+              img: "media/Princess/Disney - Cinderella (Shimmering), Amazon exclusive ★.jpeg",
+              price: "$16.75",
+            },
+            {
+              name: "Jasmine ",
+              img: "media/Princess/Jasmine.jpeg",
+              price: "$13.25",
+            },
+            {
+              name: "Merida ",
+              img: "media/Princess/Merida Funko Pop!.jpeg",
+              price: "$12.50",
+            },
+            {
+              name: "MINNIE MOUSE ",
+              img: "media/Princess/MINNIE MOUSE.jpeg",
+              price: "$11.25",
+            },
+            {
+              name: "Moana ",
+              img: "media/Princess/moana.jpeg",
+              price: "$13.99",
+            },
+            {
+              name: "Mulan Funko Pop",
+              img: "media/Princess/Mulan.jpeg",
+              price: "$14.50",
+            },
+            {
+              name: "Snow White ",
+              img: "media/Princess/snow white.jpeg",
+              price: "$13.99",
+            },
+            {
+              name: "Tiana",
+              img: "media/Princess/Tiana.jpeg",
+              price: "$13.25",
+            },
+            {
+              name: "Tinkerbell ",
+              img: "media/Princess/Tinkerbell on Mirror Funko Pop!.jpeg",
+              price: "$15.99",
+            },
+          ],
+
+          miraculous: [
+            {
+              name: "Ladybug",
+              img: "media/miracaulos/miraculous.jpeg",
+              price: "$13.99",
+            },
+            {
+              name: "Cat Noir Doll",
+              img: "media/miracaulos/cat noir doll.jpeg",
+              price: "$14.50",
+            },
+            {
+              name: "Cat Noir",
+              img: "media/miracaulos/Cat Noir.jpeg",
+              price: "$12.75",
+            },
+            {
+              name: "Hawk Moth",
+              img: "media/miracaulos/Hawk Moth.jpeg",
+              price: "$11.99",
+            },
+            {
+              name: "Rena Rouge",
+              img: "media/miracaulos/Rena Rouge.jpeg",
+              price: "$10.99",
+            },
+            {
+              name: "Carapace",
+              img: "media/miracaulos/Carapace & Nino .jpeg",
+              price: "$13.25",
+            },
+            {
+              name: "Queen Bee",
+              img: "media/miracaulos/Queen Bee .jpeg",
+              price: "$12.25",
+            },
+            {
+              name: "Cat Bunny",
+              img: "media/miracaulos/Cat  Bunnyx.jpeg",
+              price: "$13.75",
+            },
+            {
+              name: "Marinet Doll",
+              img: "media/miracaulos/Marinet.jpeg",
+              price: "$14.99",
+            },
+            {
+              name: "Miraculous",
+              img: "media/miracaulos/Miraculous1.jpeg",
+              price: "$16.50",
+            },
+          ],
+        },
+        apparel: {
+          toystory: [
+            {
+              name: "Red T-Shirt",
+              img: "malakomar/media/clothes/8d316519234ecfd8e537107b50095ade.jpg",
+              price: "$15.99",
+              id: 1001,
+            },
+            {
+              name: "Pure Blue CoW Boy T-Shirt",
+              img: "malakomar/media/clothes/14c490a0319e0aa3879485a1e6422898.jpg",
+              price: "$18.50",
+              id: 1002,
+            },
+            {
+              name: "Green T-shirt",
+              img: "malakomar/media/clothes/86bc35eb369327e31cfabf2cb2beab1a.jpg",
+              price: "$14.99",
+              id: 1003,
+            },
+            {
+              name: "Blue Green Pants",
+              img: "malakomar/media/clothes/1df8520849c05901a8487583943ca986.jpg",
+              price: "$25.99",
+              id: 1004,
+            },
+            {
+              name: "OvWhite T-shirt",
+              img: "malakomar/media/clothes/93ebf6fe55666eab91669ea43948291f.jpg",
+              price: "$15.99",
+              id: 1005,
+            },
+            {
+              name: "Yellow T-shirt",
+              img: "malakomar/media/clothes/3794c44de29e82b710b95b26982ec77e.jpg",
+              price: "$16.50",
+              id: 1006,
+            },
+            {
+              name: "Pink T-shirt",
+              img: "malakomar/media/clothes/4172dfcd872aa734068c5261484255ab.jpg",
+              price: "$15.99",
+              id: 1007,
+            },
+            {
+              name: "Special T-shirt",
+              img: "malakomar/media/clothes/e4bcb2b235d2810f42fd5d8c5ab75104.jpg",
+              price: "$19.99",
+              id: 1008,
+            },
+            {
+              name: "Cow Boy Suit",
+              img: "malakomar/media/clothes/eeccc0bd10eccbd3fa94b90504b1783b.jpg",
+              price: "$49.99",
+              id: 1009,
+            },
+          ],
+
+          insideout: [
+            {
+              name: "Pure Pink T-Shirt",
+              img: "malakomar/media/7ca56e785fceccea9f8cb699d69782dc.jpg",
+              price: "$16.99",
+              id: 2001,
+            },
+            {
+              name: "Nervous Red T-Shirt",
+              img: "malakomar/media/394db9b89f06c44fea320eb9f97069cb.jpg",
+              price: "$18.99",
+              id: 2002,
+            },
+            {
+              name: "Sad Blue T-shirt",
+              img: "malakomar/media/1608162ba2953a4734ebc74963b18f94.jpg",
+              price: "$17.50",
+              id: 2003,
+            },
+            {
+              name: "Perfect Black T-Shirt",
+              img: "malakomar/media/bac78d3ce611e8edcefdf91d06057d95.jpg",
+              price: "$19.99",
+              id: 2004,
+            },
+            {
+              name: "Green T-Shirt",
+              img: "malakomar/media/c7306b30a7a4137427e480df08bf93d8.jpg",
+              price: "$15.99",
+              id: 2005,
+            },
+            {
+              name: "Blue T-Shirt",
+              img: "malakomar/media/dea333583a58a73ae381023b13c5178a.jpg",
+              price: "$16.50",
+              id: 2006,
+            },
+            {
+              name: "Violet T-Shirt",
+              img: "malakomar/media/e7a275abb452305c2038bdcd832dd3f4.jpg",
+              price: "$17.99",
+              id: 2007,
+            },
+            {
+              name: "OvWhite T-Shirt",
+              img: "malakomar/media/eebefd133f94cb00ca2ca8ae2ed0e73d.jpg",
+              price: "$15.99",
+              id: 2008,
+            },
+            {
+              name: "Orange T-Shirt",
+              img: "malakomar/media/fb4c5de0f1f059637eb830733d5c0cbb.jpg",
+              price: "$18.50",
+              id: 2009,
+            },
+            {
+              name: "White T-Shirt",
+              img: "malakomar/media/insideout1.jpg",
+              price: "$15.99",
+              id: 2010,
+            },
+          ],
+
+          frozen: [
+            {
+              name: "Blue Ice Dress",
+              img: "malakomar/media/clothes/f1.jpg",
+              price: "$45.99",
+              id: 3001,
+            },
+            {
+              name: "Light Blue Dress",
+              img: "malakomar/media/clothes/f2.jpg",
+              price: "$49.99",
+              id: 3002,
+            },
+            {
+              name: "Anna Travel Dress",
+              img: "malakomar/media/clothes/f3.jpg",
+              price: "$39.99",
+              id: 3003,
+            },
+            {
+              name: "Elsa Ice Gown",
+              img: "malakomar/media/clothes/f4.jpg",
+              price: "$59.99",
+              id: 3004,
+            },
+          ],
+
+          barbie: [
+            {
+              name: "Pink Glitter Dress",
+              img: "malakomar/media/clothes/a1.jpg",
+              price: "$35.99",
+              id: 4001,
+            },
+            {
+              name: "Casual Striped Dress",
+              img: "malakomar/media/clothes/a3.jpg",
+              price: "$29.99",
+              id: 4002,
+            },
+            {
+              name: "Sparkle Party Dress",
+              img: "malakomar/media/clothes/a10.jpg",
+              price: "$39.99",
+              id: 4003,
+            },
+            {
+              name: "Denim & Pink Dress",
+              img: "malakomar/media/clothes/a2.jpg",
+              price: "$32.99",
+              id: 4004,
+            },
+            {
+              name: "Tropical Dress",
+              img: "malakomar/media/clothes/a4.jpg",
+              price: "$31.50",
+              id: 4005,
+            },
+            {
+              name: "Elegant Gown",
+              img: "malakomar/media/clothes/a5.jpg",
+              price: "$45.99",
+              id: 4006,
+            },
+            {
+              name: "Beach Outfit",
+              img: "malakomar/media/clothes/a6.jpg",
+              price: "$28.99",
+              id: 4007,
+            },
+            {
+              name: "Summer Jumpsuit",
+              img: "malakomar/media/clothes/a7.jpg",
+              price: "$33.99",
+              id: 4008,
+            },
+            {
+              name: "Floral Dress",
+              img: "malakomar/media/clothes/a8.jpg",
+              price: "$30.99",
+              id: 4009,
+            },
+            {
+              name: "Pink Polka Dress",
+              img: "malakomar/media/clothes/a9.jpg",
+              price: "$31.99",
+              id: 4010,
+            },
+            {
+              name: "Fashion Skirt Set",
+              img: "malakomar/media/clothes/a11.jpg",
+              price: "$34.99",
+              id: 4011,
+            },
+          ],
+
+          incredibles: [
+            {
+              name: "Mr. Incredible Suit",
+              img: "malakomar/media/i1.jpg",
+              price: "$49.99",
+              id: 5001,
+            },
+            {
+              name: "Elastigirl Suit",
+              img: "malakomar/media/i3.jpg",
+              price: "$49.99",
+              id: 5002,
+            },
+            {
+              name: "Dash Running Suit",
+              img: "malakomar/media/i4.jpg",
+              price: "$45.99",
+              id: 5003,
+            },
+            {
+              name: "Violet Stealth Suit",
+              img: "malakomar/media/i5.jpg",
+              price: "$45.99",
+              id: 5004,
+            },
+            {
+              name: "Jack-Jack Infant Suit",
+              img: "malakomar/media/i2.jpg",
+              price: "$39.99",
+              id: 5005,
+            },
+          ],
+
+          trolls: [
+            {
+              name: "Black T-shirt (Pop/Branch)",
+              img: "malakomar/media/clothes/t1.jpg",
+              price: "$17.99",
+              id: 6001,
+            },
+            {
+              name: "Poppy Costume Dress",
+              img: "malakomar/media/clothes/t2.jpg",
+              price: "$38.50",
+              id: 6002,
+            },
+            {
+              name: "Branch Vest/Pants",
+              img: "malakomar/media/clothes/t3.jpg",
+              price: "$39.99",
+              id: 6003,
+            },
+            {
+              name: "Glitter Dress",
+              img: "malakomar/media/clothes/t4.jpg",
+              price: "$35.99",
+              id: 6004,
+            },
+            {
+              name: "Sparkly Blue Dress",
+              img: "malakomar/media/clothes/t5.jpg",
+              price: "$34.99",
+              id: 6005,
+            },
+            {
+              name: "Princess Dress",
+              img: "malakomar/media/clothes/t6.jpg",
+              price: "$36.99",
+              id: 6006,
+            },
+            {
+              name: "Rock Trolls Vest",
+              img: "malakomar/media/clothes/t7.jpg",
+              price: "$31.99",
+              id: 6007,
+            },
+          ],
+
+          MICKEYMOUSE: [
+            {
+              name: "Mickey Classic Dress",
+              img: "malakomar/media/clothes/m1.jpg",
+              price: "$29.99",
+              id: 7001,
+            },
+            {
+              name: "Minnie Polka Dress",
+              img: "malakomar/media/clothes/m2.jpg",
+              price: "$32.99",
+              id: 7002,
+            },
+            {
+              name: "Mickey Mouse T-Shirt",
+              img: "malakomar/media/clothes/m3.jpg",
+              price: "$17.99",
+              id: 7003,
+            },
+            {
+              name: "Goofy T-Shirt",
+              img: "malakomar/media/clothes/m4.jpg",
+              price: "$16.99",
+              id: 7004,
+            },
+            {
+              name: "Donald Duck T-Shirt",
+              img: "malakomar/media/clothes/m5.jpg",
+              price: "$16.99",
+              id: 7005,
+            },
+          ],
+
+          DisneyPrincess: [
+            {
+              name: "Aurora Dress",
+              img: "malakomar/media/p1.jpg",
+              price: "$45.99",
+              id: 8001,
+            },
+            {
+              name: "Snow White Dress",
+              img: "malakomar/media/p3.webp",
+              price: "$42.99",
+              id: 8002,
+            },
+            {
+              name: "Mulan Costume",
+              img: "malakomar/media/p10.jpg",
+              price: "$49.99",
+              id: 8003,
+            },
+            {
+              name: "Cinderella Gown",
+              img: "malakomar/media/p2.jpg",
+              price: "$55.99",
+              id: 8004,
+            },
+            {
+              name: "Belle Ballgown",
+              img: "malakomar/media/p4.webp",
+              price: "$52.99",
+              id: 8005,
+            },
+            {
+              name: "Ariel Mermaid Dress",
+              img: "malakomar/media/p5.jpg",
+              price: "$47.99",
+              id: 8006,
+            },
+            {
+              name: "Rapunzel Dress",
+              img: "malakomar/media/p6.jpg",
+              price: "$46.99",
+              id: 8007,
+            },
+            {
+              name: "Jasmine Outfit",
+              img: "malakomar/media/p7.webp",
+              price: "$39.99",
+              id: 8008,
+            },
+            {
+              name: "Tiana Dress",
+              img: "malakomar/media/p8.jpg",
+              price: "$44.99",
+              id: 8009,
+            },
+            {
+              name: "Pocahontas Outfit",
+              img: "malakomar/media/p9.jpg",
+              price: "$41.99",
+              id: 8010,
+            },
+            {
+              name: "Merida Dress",
+              img: "malakomar/media/p11.jpg",
+              price: "$43.99",
+              id: 8011,
+            },
+            {
+              name: "Elsa Ice Dress",
+              img: "malakomar/media/p13.jpg",
+              price: "$54.99",
+              id: 8012,
+            },
+          ],
+
+          miraculous: [
+            {
+              name: "Ladybug Red Dress",
+              img: "malakomar/media/clothes/d1.jpg",
+              price: "$49.99",
+              id: 9001,
+            },
+            {
+              name: "Cat Noir Black Suit",
+              img: "malakomar/media/clothes/d2.jpg",
+              price: "$52.99",
+              id: 9002,
+            },
+            {
+              name: "Ladybug Special Dress",
+              img: "malakomar/media/clothes/d3.jpg",
+              price: "$55.99",
+              id: 9003,
+            },
+            {
+              name: "Ladybug T-shirt",
+              img: "malakomar/media/clothes/d4.jpg",
+              price: "$18.99",
+              id: 9004,
+            },
+            {
+              name: "Ladybug Suit",
+              img: "malakomar/media/clothes/d5.jpg",
+              price: "$49.99",
+              id: 9005,
+            },
+            {
+              name: "Cat Noir Black Shirt",
+              img: "malakomar/media/clothes/d6.jpg",
+              price: "$17.99",
+              id: 9006,
+            },
+            {
+              name: "Cat Noir T-shirt",
+              img: "malakomar/media/clothes/d7.jpg",
+              price: "$18.99",
+              id: 9007,
+            },
+          ],
+          encanto: [], // لا توجد ملابس لـ encanto في القائمة الأصلية
+        },
+      };
+      // المتغيرات العالمية لتتبع حالة التصفية
+      // ===============================================
+      // 2. متغيرات الحالة والعناصر (State & Elements)
+      // ===============================================
+
+      // تحديد الكارتون الافتراضي أو الكارتون المخزن في الذاكرة المحلية
+      let currentCartoon = localStorage.getItem("selectedCartoon") || "frozen";
+      let currentCategory = "toys"; // الفئة الافتراضية عند الدخول للصفحة
+
+      const productsContainer = document.getElementById("productsContainer");
+      const cartoonTitleElement = document.getElementById("cartoonTitle");
+      const filterButtons = document.querySelectorAll(".filter-btn");
+
+      // ===============================================
+      // 3. دالة عرض المنتجات (Display Function)
+      // ===============================================
+
+      /**
+       * دالة لعرض المنتجات في الشبكة.
+       */
+      function displayProducts(productsArray, cartoonName) {
+        productsContainer.innerHTML = "";
+
+        // تحديث العنوان ليظهر اسم الكارتون المختار
+        cartoonTitleElement.textContent = `Shop The Magical World of ${cartoonName.toUpperCase()}`;
+
+        if (productsArray && productsArray.length > 0) {
+          productsArray.forEach((product) => {
+            const productCard = document.createElement("div");
+            productCard.className = "product-card";
+
+            // ===============================================
+            // ⭐️⭐️ مكان التعديل ⭐️⭐️
+            // 1. تنظيف السعر من رمز الدولار وتحويله إلى رقم عشري
+            const numericPrice = parseFloat(
+              product.price.toString().replace("$", "")
+            );
+            // ===============================================
+
+            // ملاحظة: تم تحديث اسم الكلاس هنا لـ "add-btn" ليطابق CSS الخاص بك
+            productCard.innerHTML = `
+                  <img src="${product.img}" alt="${product.name}">
+                  <h3>${product.name}</h3>
+
+                  <p class="price">$${numericPrice.toFixed(2)}</p>
+
+                  <label for="qty-${product.name.replace(
+                    /\s/g,
+                    "-"
+                  )}">Quantity:</label>
+                  <input type="number" id="qty-${product.name.replace(
+                    /\s/g,
+                    "-"
+                  )}" class="quantity-input" value="0" min="1">
+
+                  <button class="add-btn" data-name="${
+                    product.name
+                  }" data-price="${numericPrice}"
+                          onclick="addToCart('${
+                            product.name
+                          }', ${numericPrice}, document.getElementById('qty-${product.name.replace(
+              /\s/g,
+              "-"
+            )}'))"
+>
+                      <i class="fas fa-shopping-cart"></i> Add to Cart
+                  </button>
+              `;
+            productsContainer.appendChild(productCard);
+          });
+        } else {
+          productsContainer.innerHTML = `
+              <p style="grid-column: 1 / -1; text-align: center; font-size: 1.2rem; color: #d81b60;">
+                  Sorry! No ${currentCategory} products found for ${cartoonName.toUpperCase()} yet.
+              </p>
+          `;
+        }
+      }
+      // ===============================================
+      // 4. دالة التصفية (Filter Function)
+      // ===============================================
+
+      /**
+       * دالة لتصفية وعرض المنتجات حسب الفئة (Toys/Apparel).
+       * يتم استدعاؤها عبر onclick في HTML.
+       */
+      window.filterProducts = function (category, clickedButton) {
+        currentCategory = category;
+
+        // تحديث تفعيل الأزرار
+        filterButtons.forEach((btn) =>
+          btn.classList.remove("active", "chosenBtn")
+        );
+        clickedButton.classList.add("active", "chosenBtn");
+
+        // الحصول على المنتجات المفلترة
+        const cartoonProducts = productsData[currentCategory][currentCartoon];
+
+        displayProducts(cartoonProducts, currentCartoon);
+      };
+
+      // ===============================================
+      // 5. دالة التهيئة والتشغيل (Initialization)
+      // ===============================================
+
+      /**
+       * تهيئة الصفحة عند تحميلها.
+       */
+      function initializeProductsPage() {
+        // 1. تفعيل زر الفئة الافتراضية
+        const defaultButton = document.querySelector(
+          `.filter-btn[data-type="${currentCategory}"]`
+        );
+        if (defaultButton) {
+          defaultButton.classList.add("active", "chosenBtn");
+        }
+
+        // 2. الحصول على مجموعة المنتجات الأولية
+        const initialProducts = productsData[currentCategory][currentCartoon];
+
+        // 3. عرض المنتجات
+        displayProducts(initialProducts, currentCartoon);
+
+        // [اختياري]: مسح الذاكرة المحلية بعد الاستخدام لمنع تخزين نفس الكارتون للزيارة القادمة
+        // localStorage.removeItem('selectedCartoon');
+      }
+
+      // تشغيل دالة التهيئة عند تحميل الصفحة
+      window.onload = initializeProductsPage;
+
+      // ===============================================
+      // الكود الخاص بصفحة الرئيسية (index.html)
+      // هذا الجزء يجب وضعه في ملف منفصل (مثل js/index.js) وربطه بـ index.html
+      // ولكن تم إدراجه هنا كمرجع:
+      // ===============================================
+
+      /**
+       * دالة يتم استدعاؤها عند اختيار كارتون من صفحة index.html
+       */
+
+      function selectCartoon(cartoonName) {
+        // 1. تخزين اسم الكارتون المختار
+        localStorage.setItem("selectedCartoon", cartoonName.toLowerCase());
+
+        // 2. التوجيه لصفحة المنتجات
+        window.location.href = "products.html";
+      }
+
+      // أكمل الكود الموجود في js/products.js بعد دالة displayProducts
+
+      // ===============================================
+      // 5. دالة تحديث الإجمالي في صفحة المنتجات (Total Display)
+      // ===============================================
+      // في ملف js/products.js
+      function updateTotalDisplay() {
+        // جلب سلة المشتريات من localStorage
+        const cart = JSON.parse(localStorage.getItem("cart")) || [];
+        const totalPriceEl = document.getElementById("totalPrice"); // سيصبح null الآن
+        const cartCountEl = document.querySelector(".cart-count");
+
+        let total = 0;
+        let totalItems = 0;
+
+        cart.forEach((item) => {
+          total += item.price * item.quantity;
+          totalItems += item.quantity;
+        });
+
+        // ⭐️ هذا الجزء لن يُنفَّذ الآن، ولن يسبب خطأ ⭐️
+        if (totalPriceEl) {
+          totalPriceEl.textContent = `$${total.toFixed(2)}`;
+        }
+
+        // هذا الجزء سيعمل بشكل طبيعي لتحديث أيقونة السلة (العد) في الهيدر
+        if (cartCountEl) {
+          cartCountEl.textContent = totalItems;
+        }
+      }
+      // ===============================================
+      // 6. دالة الإضافة إلى سلة المشتريات (Add To Cart)
+      // ===============================================
+
+      window.addToCart = function (productName, productPrice, quantityElement) {
+        // 1. جلب بيانات المنتج والكمية
+        const price = parseFloat(productPrice);
+        const quantity = parseInt(quantityElement.value);
+
+        // جلب بيانات المنتج بالكامل (الصورة، الكارتون)
+        let image = "";
+        let cartoonName = currentCartoon;
+
+        // البحث عن صورة المنتج (عملية اختيارية لتضمين الصورة في السلة)
+        const categoryData = productsData[currentCategory];
+        if (categoryData && categoryData[currentCartoon]) {
+          const productFound = categoryData[currentCartoon].find(
+            (p) => p.name === productName
+          );
+          if (productFound) {
+            image = productFound.img;
+          }
+        }
+
+        // 2. إعداد العنصر الجديد
+        const newItem = {
+          name: productName,
+          price: price,
+          quantity: quantity,
+          image: image,
+          character: cartoonName, // لحفظ الكارتون ضمن بيانات السلة
+        };
+
+        // 3. جلب السلة الحالية
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        let itemExists = false;
+
+        // 4. التحقق مما إذا كان المنتج موجودًا بالفعل
+        for (let item of cart) {
+          if (item.name === productName) {
+            item.quantity += quantity;
+            itemExists = true;
+            break;
+          }
+        }
+
+        // 5. إذا لم يكن موجودًا، أضفه
+        if (!itemExists) {
+          cart.push(newItem);
+        }
+
+        // 6. حفظ السلة في localStorage
+        localStorage.setItem("cart", JSON.stringify(cart));
+
+        // 7. تحديث عرض الإجمالي
+        updateTotalDisplay();
+
+        // رسالة تأكيد لطيفة
+        alert(`${quantity} x ${productName} added to your cart!`);
+      };
+
+      // ===============================================
+      // 7. تحديث دالة التهيئة (Initialization)
+      // ===============================================
+
+      // ===============================================
+      // 7. تحديث دالة التهيئة (Initialization)
+      // ===============================================
+
+      function initializeProductsPage() {
+        // ... (الكود السابق) ...
+
+        // 1. تفعيل زر الفئة الافتراضية (سيكون زر 'toys' بما أن currentCategory = 'toys')
+        const defaultButton = document.querySelector(
+          `.filter-btn[data-type="${currentCategory}"]`
+        );
+        if (defaultButton) {
+          // ⭐️ هذا يضمن أن زر 'Toys' هو الذي يأخذ التنسيق النشط ⭐️
+          defaultButton.classList.add("active", "chosenBtn");
+        }
+
+        // 2. الحصول على مجموعة المنتجات الأولية
+        const initialProducts = productsData[currentCategory][currentCartoon];
+
+        // 3. عرض المنتجات
+        displayProducts(initialProducts, currentCartoon);
+
+        // ... (باقي الكود) ...
+      }
+      // تشغيل دالة التهيئة عند تحميل الصفحة
+      window.onload = initializeProductsPage;
+    </script>
+  </body>
+</html>
