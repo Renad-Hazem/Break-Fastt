@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign In / Sign Up | Disney Store</title>
+    <link rel="stylesheet" href="css/signin.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="main-c">
+      <header class="header">
+        <div class="logo"><i class="fas fa-magic"></i> Disney Store</div>
+        <nav class="navbar">
+          <a href="index.html">Home</a>
+          <a href="index.html#cartoon-section">Products</a>
+          <a href="index.html#hot-deals-section">Hot Deals</a>
+          <a href="aboutus.html">About Us</a>
+          <a href="contact.html">Contact Us</a>
+          <a href="signin.html">Log In</a>
+        </nav>
+        <div class="icons">
+          <i class="fas fa-search"></i>
+          <a href="cart.html" class="cart-icon">
+            <i class="fas fa-shopping-cart"></i>
+          </a>
+          <i class="fas fa-user-circle"></i>
+        </div>
+      </header>
+      <div class="container" id="container">
+        <div class="form-container sign-up-container">
+          <form action="../../task5.html">
+            <h1>Create Account</h1>
+            <input type="text" placeholder="Name" required />
+            <input type="email" placeholder="Email" required />
+            <input type="password" placeholder="Password" required />
+            <input type="password" placeholder="Confirm Password" required />
+
+            <button>Sign Up</button>
+          </form>
+        </div>
+        <div class="form-container sign-in-container">
+          <form action="../../task5.html">
+            <h1>Sign in</h1>
+            <input type="email" placeholder="Email" required />
+            <input type="password" placeholder="Password" required />
+            <button>Sign In</button>
+          </form>
+        </div>
+        <div class="overlay-container">
+          <div class="overlay">
+            <div class="overlay-panel overlay-left">
+              <h1>Welcome Back!</h1>
+              <p>
+                To keep connected with us please login with your personal info
+              </p>
+              <button class="ghost" id="signIn">Sign In</button>
+            </div>
+            <div class="overlay-panel overlay-right">
+              <h1>Hello, Friend!</h1>
+              <p>Enter your personal details and start journey with us</p>
+              <button class="ghost" id="signUp">Sign Up</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer class="footer">
+        <div class="footer-container">
+          <div class="footer-col">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="index.html#cartoon-section">Shop Products</a></li>
+              <li><a href="aboutus.html">Our Story</a></li>
+              <li><a href="contact.html">Customer Service</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Follow Us</h4>
+            <div class="social-links">
+              <a href="#https://www.facebook.com/"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="#https://www.instagram.com/"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="#https://x.com/"><i class="fab fa-twitter"></i></a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h4>Contact Info</h4>
+            <p>Email: support@disneystore.com</p>
+            <p>Phone: +1 (800) 123-4567</p>
+          </div>
+        </div>
+        <div class="copyright">
+          <p>&copy; 2025 The Magical Disney Store. All rights reserved.</p>
+        </div>
+      </footer>
+    </div>
+    <script>
+      const container = document.getElementById("container");
+      document.getElementById("signUp").addEventListener("click", () => {
+        container.classList.add("right-panel-active");
+      });
+
+      document.getElementById("signIn").addEventListener("click", () => {
+        container.classList.remove("right-panel-active");
+      });
+    </script>
+  </body>
+</html>

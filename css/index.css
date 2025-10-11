@@ -405,7 +405,7 @@ input[type="radio"] {
   border-radius: 5px;
   font-family: "Poppins";
   font-size: 1rem;
-  color: var(--grey-900);
+  color: var(--pink-700);
   transition: 0.3s;
 }
 .form-group input:focus,
@@ -438,6 +438,7 @@ input[type="radio"] {
 }
 .info-details {
   padding-top: 5px;
+  text-align: justify;
 }
 .info-title {
   font-size: 1.1rem;
@@ -591,4 +592,14 @@ input[type="radio"] {
   .info-details {
     text-align: left;
   }
+}
+.contact-header h2 {
+  color: var(--pink-700);
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+}
+.contact-header p {
+  font-size: 1rem;
+  color: var(--pink-500);
+  margin-bottom: 1rem;
 }
