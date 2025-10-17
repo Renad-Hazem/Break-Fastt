@@ -118,21 +118,21 @@
       <h2>Limited Time Morning Offers!</h2>
       <div class="deals-container">
         <div class="deal-card">
-          <img src="media/latte.jpg" alt="Caramel Latte" />
+          <img src="media/offer0.jpg" alt="Caramel Latte" />
           <h3>Caramel Latte (30% OFF)</h3>
           <p class="price"><span class="old-price">$8.00</span> $5.60</p>
           <a href="#menu-section" class="btn-small">Order Now</a>
         </div>
 
         <div class="deal-card">
-          <img src="media/croissant.jpg" alt="Butter Croissant" />
+          <img src="media/offermid.jpg" alt="Butter Croissant" />
           <h3>Fresh Butter Croissant</h3>
           <p class="price"><span class="old-price">$4.00</span> $2.99</p>
           <a href="#menu-section" class="btn-small">Order Now</a>
         </div>
 
         <div class="deal-card">
-          <img src="media/sandwich.jpg" alt="Breakfast Sandwich" />
+          <img src="media/offer1.jpg" alt="Breakfast Sandwich" />
           <h3>Breakfast Sandwich Combo</h3>
           <p class="price"><span class="old-price">$10.00</span> $7.50</p>
           <a href="#menu-section" class="btn-small">Order Now</a>
@@ -146,7 +146,7 @@
       <h2>Experience the Magic of our Website!</h2>
       <div class="video-container-wrapper">
         <video controls muted>
-          <source src="media/hello.mp4" type="video/mp4" />
+          <source src="media/v.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
       </div>
@@ -255,23 +255,20 @@
 
     <script>
       let counter = 1;
-      const totalSlides = 3; // عدد الصور
+      const totalSlides = 3;
 
       setInterval(() => {
         document.getElementById("radio" + counter).checked = true;
         counter++;
         if (counter > totalSlides) counter = 1;
-      }, 5000); // كل 5 ثواني      function scrollToCartoons() {
+      }, 5000);
       document.getElementById("cartoon-section").scrollIntoView({
         behavior: "smooth",
       });
 
       function selectCartoon(cartoonName) {
-        // 1. تخزين اسم الكارتون المختار في الذاكرة المحلية (localStorage)
         localStorage.setItem("selectedCartoon", cartoonName);
 
-        // 2. توجيه المستخدم إلى صفحة المنتجات
-        // هذا سيعيد تحميل صفحة المنتجات مع البيانات الجديدة في localStorage
         window.location.href = "products.html";
       }
     </script>

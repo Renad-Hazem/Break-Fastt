@@ -39,13 +39,13 @@
 }
 
 .contact-form-section {
-  flex: 2; /* Form takes more space */
+  flex: 2;
   padding: 40px;
-  background-color: var(--pink-50); /* Light pink background for the form */
+  background-color: var(--pink-50);
 }
 
 .info-map-section {
-  flex: 1.5; /* Info and map takes slightly less space */
+  flex: 1.5;
   padding: 40px;
   background-color: var(--white);
 }
@@ -66,14 +66,12 @@
   margin-bottom: 30px;
 }
 
-/* --- Form Styling (Reusing index.css form styles) --- */
 .contact-form .form-group {
   margin-bottom: 20px;
 }
 
 .contact-form input,
 .contact-form textarea {
-  /* Inherited styles from index.css for input/textarea */
   width: 100%;
   padding: 12px;
   border: 1px solid var(--grey-300);

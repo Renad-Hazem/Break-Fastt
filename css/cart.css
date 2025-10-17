@@ -46,7 +46,7 @@ table td {
 }
 
 table thead th {
-  background-color: var(--pink-200); /* Light pink header row */
+  background-color: var(--pink-200);
   color: var(--pink-900);
   font-size: 1rem;
   font-weight: 600;
@@ -110,7 +110,7 @@ table thead th {
 }
 
 .summary-box {
-  background-color: var(--pink-100); /* Light pink background */
+  background-color: var(--pink-100);
   padding: 25px;
   border-radius: 10px;
   box-shadow: var(--shadow-medium);
@@ -166,12 +166,10 @@ table thead th {
   }
 }
 @media (max-width: 600px) {
-  /* Hide some columns for small screens (Mobile View) */
   table thead th:nth-child(2),
   table td:nth-child(2),
   table thead th:nth-child(5),
   table td:nth-child(5) {
-    /* Hiding Price and Remove columns, if necessary */
     display: none;
   }
 }
