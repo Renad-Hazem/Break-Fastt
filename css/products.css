@@ -1,3 +1,23 @@
+/* --- 0. Color Variables and Base Styles --- */
+:root {
+  /* ☕ Coffee & Croissant Palette (بديلة عن pink palette) */
+  --pink-500: #6f4e37; /* لون القهوة الأساسي */
+  --pink-700: #4b3621; /* بني غامق للهيدر أو الأزرار */
+  --pink-900: #2d1e15; /* بني داكن جدًا للتأكيد أو العناوين */
+  --pink-200: #d7b89c; /* بيج ناعم - يشبه لون الحليب أو الكرواسون */
+  --pink-100: #f3e5ab; /* كريمي دافئ - لخلفيات الأقسام */
+  --pink-50: #fff8e1; /* خلفية فاتحة دافئة (لخلفية الصفحة) */
+
+  --grey-900: #2c2c2c; /* نص أساسي */
+  --grey-700: #5a5a5a; /* نصوص ثانوية */
+  --grey-300: #d9d9d9; /* حدود أو خلفيات خفيفة */
+  --white: #ffffff;
+  --dark-bg: #3b2f2f; /* خلفية داكنة (للهيدر أو الفوتر) */
+
+  --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-medium: 0 8px 16px rgba(0, 0, 0, 0.12);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -6,20 +26,19 @@
 
 body {
   font-family: "Poppins", sans-serif;
-  background: linear-gradient(to bottom right, #ffe6f0, #fff0f5);
-  color: #333;
-  margin: 0; /* خلى الهيدر والفوتر full width */
+  background: var(--pink-50);
+  color: var(--grey-900);
+  margin: 0;
 }
 
 /* --- Header --- */
 .header {
-  width: 100%;
-  background: #232f3e; /* لون غامق للheader */
+  background: var(--dark-bg);
   padding: 15px 5%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-light);
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -28,19 +47,26 @@ body {
 .logo {
   font-size: 1.8rem;
   font-weight: 700;
-  color: #c2185b;
+  color: var(--pink-200);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.logo:hover {
+  color: var(--pink-500);
 }
 
 .navbar a {
-  color: #ffc0cb;
+  color: var(--pink-200);
   margin: 0 15px;
   font-size: 1rem;
   font-weight: 500;
-  text-decoration: none;
 }
-
 .navbar a:hover {
-  color: #ff1493;
+  color: var(--pink-500);
 }
 
 .icons i,
@@ -48,22 +74,21 @@ body {
   font-size: 1.3rem;
   margin-left: 15px;
   cursor: pointer;
-  color: #ffc0cb;
+  color: var(--pink-200);
   position: relative;
   transition: 0.3s;
 }
-
 .icons i:hover,
 .icons a:hover {
-  color: #ff1493;
+  color: var(--pink-500);
 }
 
 .cart-count {
   position: absolute;
   top: -8px;
   left: -8px;
-  background: #ff1493;
-  color: #fff;
+  background: var(--pink-500);
+  color: var(--white);
   border-radius: 50%;
   padding: 2px 6px;
   font-size: 0.7em;
@@ -82,94 +107,105 @@ main {
   gap: 30px;
 }
 
+/* --- Product Card --- */
 .product-card {
-  background: white;
+  background: var(--pink-50); /* خلفية كريمية */
   border-radius: 18px;
-  box-shadow: 0 8px 20px rgba(255, 105, 180, 0.2);
+  border: 1px solid var(--pink-200);
+  box-shadow: var(--shadow-light);
   overflow: hidden;
   text-align: center;
   padding: 20px;
-  border: 2px solid #ffc0cb;
-  transition: 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-medium);
 }
 
 .product-card img {
   width: 100%;
-  height: 250px;
+  height: 220px;
   object-fit: cover;
   border-radius: 12px;
+  margin-bottom: 10px;
   transition: transform 0.3s ease;
 }
 
-.product-card h3 {
-  margin: 15px 0 10px;
-  color: #d81b60;
-}
-
-.product-card .add-btn {
-  padding: 10px 25px;
-  background-color: #e91e63;
-  color: white;
-  border: none;
-  border-radius: 25px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.product-card .add-btn:hover {
-  background-color: #ad1457;
-}
-
 .product-card:hover img {
-  transform: scale(1.05);
+  transform: scale(1.04);
+}
+
+.product-card h3 {
+  margin: 10px 0;
+  color: var(--pink-700);
+  font-weight: 600;
 }
 
 .price {
   font-weight: bold;
-  color: #4caf50;
-  margin: 5px 0;
+  color: var(--pink-500);
+  margin: 5px 0 10px;
   font-size: 1.1rem;
 }
 
 .product-card label {
   display: block;
-  margin: 10px 0;
-  color: #d81b60;
+  color: var(--pink-700);
   font-weight: 600;
   font-size: 0.95rem;
+  margin-bottom: 6px;
 }
 
 .product-card .quantity-input {
   width: 60px;
   padding: 6px 10px;
-  border: 2px solid #ffc0cb;
+  border: 1px solid var(--pink-200);
   border-radius: 10px;
   font-size: 1rem;
   text-align: center;
-  margin-top: 5px;
+  background-color: var(--white);
   transition: 0.3s ease;
 }
 
 .product-card .quantity-input:focus {
-  border-color: #e91e63;
+  border-color: var(--pink-500);
+  box-shadow: 0 0 6px rgba(111, 78, 55, 0.3);
   outline: none;
-  box-shadow: 0 0 5px rgba(233, 30, 99, 0.3);
+}
+
+.add-btn {
+  background-color: var(--pink-700);
+  color: var(--white);
+  border: none;
+  border-radius: 25px;
+  padding: 10px 25px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.2s;
+  margin-top: 10px;
+}
+
+.add-btn:hover {
+  background-color: var(--pink-500);
+  transform: scale(1.05);
 }
 
 /* --- Total Container --- */
 #totalContainer {
   text-align: center;
   margin-top: 40px;
-  background-color: #ffe4ec;
+  background-color: var(--pink-100);
   padding: 15px 30px;
   border-radius: 20px;
-  box-shadow: 0 5px 15px rgba(233, 30, 99, 0.2);
+  box-shadow: var(--shadow-light);
   max-width: 300px;
   margin: 40px auto 0;
 }
 
 #totalPrice {
-  color: #4caf50;
+  color: var(--pink-500);
   font-weight: bold;
   font-size: 1.5rem;
 }
@@ -177,8 +213,8 @@ main {
 /* --- Footer --- */
 .footer {
   width: 100%;
-  background: #232f3e;
-  color: #fff;
+  background: var(--pink-900);
+  color: var(--white);
   padding: 40px 5% 20px;
   box-sizing: border-box;
 }
@@ -187,7 +223,7 @@ main {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  border-bottom: 1px solid #444;
+  border-bottom: 1px solid var(--pink-700);
   padding-bottom: 20px;
   margin-bottom: 20px;
   text-align: left;
@@ -201,7 +237,7 @@ main {
 .footer-col h4 {
   font-size: 1.2rem;
   margin-bottom: 15px;
-  color: #ffc0cb;
+  color: var(--pink-200);
 }
 
 .footer-col ul {
@@ -216,7 +252,7 @@ main {
 }
 
 .footer-col ul li a:hover {
-  color: #ff1493;
+  color: var(--pink-500);
 }
 
 .social-links a {
@@ -228,13 +264,13 @@ main {
   text-align: center;
   line-height: 40px;
   border-radius: 50%;
-  color: white;
+  color: var(--white);
   transition: 0.5s;
 }
 
 .social-links a:hover {
-  color: #4b004b;
-  background: #fff;
+  color: var(--pink-700);
+  background: var(--white);
 }
 
 .footer-col p {
@@ -248,21 +284,21 @@ main {
   font-size: 0.9rem;
   color: #ccc;
 }
-/* تنسيقات أزرار التصفية الجديدة */
 
+/* --- Filter Buttons --- */
 .filter-controls {
   text-align: center;
   margin: 20px auto 40px;
   padding: 15px;
-  background-color: #fff0f5; /* لون فاتح لخلفية شريط التصفية */
+  background-color: var(--pink-100);
   border-radius: 15px;
   max-width: 600px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  box-shadow: var(--shadow-light);
 }
 
 .filter-heading {
   font-size: 1.2rem;
-  color: #d81b60;
+  color: var(--pink-700);
   margin-bottom: 15px;
   font-weight: 600;
 }
@@ -270,15 +306,14 @@ main {
 .filter-btn {
   padding: 10px 20px;
   margin: 0 10px;
-  border: 2px solid #e91e63;
-  background-color: white;
-  color: #e91e63;
+  border: 2px solid var(--pink-700);
+  background-color: var(--white);
+  color: var(--pink-700);
   border-radius: 25px;
   cursor: pointer;
   font-weight: 600;
   transition: all 0.3s;
   font-size: 1rem;
-  outline: none; /* إزالة التركيز الأزرق عند الضغط */
 }
 
 .filter-btn i {
@@ -286,13 +321,13 @@ main {
 }
 
 .filter-btn:hover {
-  background-color: #ffe6f0;
+  background-color: var(--pink-200);
+  color: var(--pink-900);
 }
 
-/* التنسيق للزر النشط */
 .filter-btn.active {
-  background-color: #e91e63;
-  color: white;
-  box-shadow: 0 4px 10px rgba(233, 30, 99, 0.4);
-  border-color: #e91e63;
+  background-color: var(--pink-700);
+  color: var(--white);
+  box-shadow: var(--shadow-medium);
+  border-color: var(--pink-700);
 }

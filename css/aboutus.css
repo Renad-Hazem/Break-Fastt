@@ -12,7 +12,7 @@
 }
 
 .about-overlay {
-  background: url("../media/bgg.jpg");
+  background: url("../media/f1.jpg");
   background-size: cover;
   position: absolute;
   top: 0;
@@ -27,13 +27,13 @@
 
 .about-hero h1 {
   font-size: 3.5rem;
-  color: var(--pink-700);
+  color: var(--pink-100);
   margin-bottom: 10px;
 }
 
 .about-hero p {
   font-size: 1.2rem;
-  color: var(--pink-500);
+  color: var(--pink-50);
 }
 
 /* --- Story Section --- */

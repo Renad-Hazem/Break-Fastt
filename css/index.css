@@ -1,17 +1,18 @@
 /* --- 0. Color Variables and Base Styles --- */
 :root {
-  --pink-500: #e91e63;
-  --pink-700: #c2185b;
-  --pink-900: #880e4f;
-  --pink-200: #ffc0cb;
-  --pink-100: #f8bbd0;
-  --pink-50: #fce4ec;
+  /* ☕ Coffee & Croissant Palette (بديلة عن pink palette) */
+  --pink-500: #6f4e37; /* لون القهوة الأساسي */
+  --pink-700: #4b3621; /* بني غامق للهيدر أو الأزرار */
+  --pink-900: #2d1e15; /* بني داكن جدًا للتأكيد أو العناوين */
+  --pink-200: #d7b89c; /* بيج ناعم - يشبه لون الحليب أو الكرواسون */
+  --pink-100: #f3e5ab; /* كريمي دافئ - لخلفيات الأقسام */
+  --pink-50: #fff8e1; /* خلفية فاتحة دافئة (لخلفية الصفحة) */
 
-  --grey-900: #333;
-  --grey-700: #555;
-  --grey-300: #ddd;
-  --white: #fff;
-  --dark-bg: #232f3e;
+  --grey-900: #2c2c2c; /* نص أساسي */
+  --grey-700: #5a5a5a; /* نصوص ثانوية */
+  --grey-300: #d9d9d9; /* حدود أو خلفيات خفيفة */
+  --white: #ffffff;
+  --dark-bg: #3b2f2f; /* خلفية داكنة (للهيدر أو الفوتر) */
 
   --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.08);
   --shadow-medium: 0 8px 16px rgba(0, 0, 0, 0.12);
@@ -79,10 +80,20 @@ a {
   top: 0;
   z-index: 1000;
 }
+
 .logo {
   font-size: 1.8rem;
   font-weight: 700;
-  color: var(--pink-700);
+  color: var(--pink-200);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.logo:hover {
+  color: #8f643a;
 }
 .navbar a {
   color: var(--pink-200);
@@ -139,8 +150,8 @@ a {
 .slide img {
   width: 100%;
   height: 100%;
-  border-radius: 10px;
   object-fit: cover;
+  filter: brightness(50%);
 }
 
 input[type="radio"] {
@@ -331,7 +342,7 @@ input[type="radio"] {
 .video-section h2 {
   margin-bottom: 40px;
   font-size: 2.2rem;
-  color: var(--grey-900);
+  color: var(--pink-700);
 }
 
 .video-container-wrapper {

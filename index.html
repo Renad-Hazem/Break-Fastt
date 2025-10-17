@@ -3,26 +3,23 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>The Magical Disney Store | Home</title>
-    <link rel="stylesheet" href="css/index.css" />
+    <title>Home</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
       rel="stylesheet"
     />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-    />
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="css/index.css" />
   </head>
   <body>
     <header class="header">
-      <div class="logo"><i class="fas fa-magic"></i> Disney Store</div>
+      <div class="logo"><i class="fa-solid fa-mug-hot"></i> BreakFast</div>
       <nav class="navbar">
         <a href="index.html">Home</a>
-        <a href="#cartoon-section">Products</a>
-        <a href="#hot-deals-section">Hot Deals</a>
+        <a href="index.html#menu-section">Menu</a>
+        <a href="index.html#offers-section">Special Offers</a>
         <a href="aboutus.html">About Us</a>
-        <a href="contact.html">Contact Us</a>
+        <a href="contact.html">Contact</a>
         <a href="signin.html">Log In</a>
       </nav>
       <div class="icons">
@@ -43,13 +40,13 @@
       <!-- Slides -->
       <div class="slides">
         <div class="slide">
-          <img src="media/ph0.jpg" alt="Disney 2" />
+          <img src="media/scroll0.jpg" alt="Disney 2" />
         </div>
         <div class="slide">
-          <img src="media/ph1.jpg" alt="Disney 3" />
+          <img src="media/scroll1.jpg" alt="Disney 3" />
         </div>
         <div class="slide">
-          <img src="media/ph2.jpg" alt="Disney 4" />
+          <img src="media/scroll2.jpg" alt="Disney 4" />
         </div>
       </div>
 
@@ -73,77 +70,80 @@
       </div>
     </div>
 
-    <h2 class="title" id="cartoon-section">Choose Your Favorite Cartoon</h2>
+    <h2 class="title" id="menu-section">Choose Your Favorite Shop</h2>
     <div class="cartoon-grid">
-      <div class="card" onclick="selectCartoon('frozen')">
-        <img src="media/frozen.jpg" alt="Frozen" />
-        <h3>Frozen</h3>
+      <div class="card" onclick="selectCartoon('cilantro')">
+        <img src="media/cilantro.jpg" alt="Frozen" />
+        <h3>Cilantro</h3>
       </div>
-      <div class="card" onclick="selectCartoon('barbie')">
-        <img src="media/barbie.jpg" alt="Barbie" />
-        <h3>Barbie</h3>
+      <div class="card" onclick="selectCartoon('koffeKulture')">
+        <img src="media/koffekulture.jpg" alt="Barbie" />
+        <h3>Koffe Kulture</h3>
       </div>
-      <div class="card" onclick="selectCartoon('incredibles')">
-        <img src="media/incridables.jpg" alt="The Incredibles" />
-        <h3>The Incredibles</h3>
+      <div class="card" onclick="selectCartoon('cinnabon')">
+        <img src="media/cinabbon.jpg" alt="The Incredibles" />
+        <h3>Cinnabon</h3>
       </div>
-      <div class="card" onclick="selectCartoon('trolls')">
-        <img src="media/trolls.jpg" alt="Trolls" />
-        <h3>Trolls</h3>
+      <div class="card" onclick="selectCartoon('starbucks')">
+        <img src="media/starbucks.jpg" alt="Trolls" />
+        <h3>Starbucks</h3>
       </div>
-      <div class="card" onclick="selectCartoon('insideout')">
-        <img src="media/insideout.jpg" alt="Inside Out" />
-        <h3>Inside Out</h3>
+      <div class="card" onclick="selectCartoon('dunkin')">
+        <img src="media/dunkin.jpg" alt="Inside Out" />
+        <h3>Dunkin</h3>
       </div>
-      <div class="card" onclick="selectCartoon('encanto')">
-        <img src="media/encanto.jpg" alt="Encanto" />
-        <h3>Encanto</h3>
+      <div class="card" onclick="selectCartoon('krispyKreame')">
+        <img src="media/kr.jpg" alt="Encanto" />
+        <h3>Krispy Kreame</h3>
       </div>
-      <div class="card" onclick="selectCartoon('MICKEYMOUSE')">
-        <img src="media/mickey.jpeg" alt="MICKEYMOUSE" />
-        <h3>Mickey Mouse</h3>
+      <div class="card" onclick="selectCartoon('ninteeneighty')">
+        <img src="media/1980.jpg" alt="MICKEYMOUSE" />
+        <h3>1980</h3>
       </div>
-      <div class="card" onclick="selectCartoon('toystory')">
-        <img src="media/toystory.jpg" alt="Toy Story" />
-        <h3>Toy Story</h3>
+      <div class="card" onclick="selectCartoon('alAbed')">
+        <img src="media/al.jpg" alt="Toy Story" />
+        <h3>العبد</h3>
       </div>
-      <div class="card" onclick="selectCartoon('DisneyPrincess')">
-        <img src="media/disney princsess.jpeg" alt="DisneyPrincess" />
-        <h3>Disney Princess</h3>
+      <div class="card" onclick="selectCartoon('ninetwonine')">
+        <img src="media/929.jpg" alt="DisneyPrincess" />
+        <h3>929</h3>
       </div>
-      <div class="card" onclick="selectCartoon('miraculous')">
-        <img src="media/miraculous.jpg" alt="Miraculous" />
-        <h3>Miraculous</h3>
+      <div class="card" onclick="selectCartoon('katura')">
+        <img src="media/katura.jpg" alt="Miraculous" />
+        <h3>Katura</h3>
       </div>
     </div>
 
-    <section id="hot-deals-section" class="hot-deals">
-      <h2>Limited Time Hot Deals!</h2>
+    <section id="offers-section" class="hot-deals">
+      <h2>Limited Time Morning Offers!</h2>
       <div class="deals-container">
         <div class="deal-card">
-          <img src="media/buzzlatestproduct.jpg" alt="Buzz Lightyear Toy" />
-          <h3>Buzz Lightyear Toy (30% OFF)</h3>
-          <p class="price"><span class="old-price">$50.00</span> $35.00</p>
-          <a href="#cartoon-section" class="btn-small">Explore</a>
+          <img src="media/latte.jpg" alt="Caramel Latte" />
+          <h3>Caramel Latte (30% OFF)</h3>
+          <p class="price"><span class="old-price">$8.00</span> $5.60</p>
+          <a href="#menu-section" class="btn-small">Order Now</a>
         </div>
+
         <div class="deal-card">
-          <img src="media/t-shirtjasmine.jpg" alt="Princess T-Shirt" />
-          <h3>Princess Jasmine T-Shirt</h3>
-          <p class="price"><span class="old-price">$20.00</span> $14.99</p>
-          <a href="#cartoon-section" class="btn-small">Explore</a>
+          <img src="media/croissant.jpg" alt="Butter Croissant" />
+          <h3>Fresh Butter Croissant</h3>
+          <p class="price"><span class="old-price">$4.00</span> $2.99</p>
+          <a href="#menu-section" class="btn-small">Order Now</a>
         </div>
+
         <div class="deal-card">
-          <img src="media/backbag minijpg.jpg" alt="Minnie Mouse Bag" />
-          <h3>Minnie Mouse Backpack</h3>
-          <p class="price"><span class="old-price">$40.00</span> $29.99</p>
-          <a href="#cartoon-section" class="btn-small">Explore</a>
+          <img src="media/sandwich.jpg" alt="Breakfast Sandwich" />
+          <h3>Breakfast Sandwich Combo</h3>
+          <p class="price"><span class="old-price">$10.00</span> $7.50</p>
+          <a href="#menu-section" class="btn-small">Order Now</a>
         </div>
       </div>
-      <a href="#cartoon-section" class="btn view-all-btn">View All Deals</a>
+
+      <a href="#menu-section" class="btn view-all-btn">View All Offers</a>
     </section>
 
     <section class="video-section">
-      <h2>Experience the Magic of Disney!</h2>
+      <h2>Experience the Magic of our Website!</h2>
       <div class="video-container-wrapper">
         <video controls muted>
           <source src="media/hello.mp4" type="video/mp4" />
@@ -206,7 +206,7 @@
             <i class="fas fa-envelope"></i>
             <div class="info-details">
               <h4 class="info-title">Email</h4>
-              <p>support@disneystore.com</p>
+              <p>support@breakfast.com</p>
             </div>
           </div>
           <div class="info-block">
@@ -219,36 +219,37 @@
         </div>
       </div>
     </section>
+    <!-- ===== Footer ===== -->
     <footer class="footer">
       <div class="footer-container">
         <div class="footer-col">
           <h4>Quick Links</h4>
           <ul>
-            <li><a href="index.html#cartoon-section">Shop Products</a></li>
+            <li><a href="index.html#menu-section">Our Menu</a></li>
             <li><a href="aboutus.html">Our Story</a></li>
-            <li><a href="contact.html">Customer Service</a></li>
+            <li><a href="contact.html">Get in Touch</a></li>
           </ul>
         </div>
         <div class="footer-col">
           <h4>Follow Us</h4>
           <div class="social-links">
-            <a href="#https://www.facebook.com/"
+            <a href="https://www.facebook.com/"
               ><i class="fab fa-facebook-f"></i
             ></a>
-            <a href="#https://www.instagram.com/"
+            <a href="https://www.instagram.com/"
               ><i class="fab fa-instagram"></i
             ></a>
-            <a href="#https://x.com/"><i class="fab fa-twitter"></i></a>
+            <a href="https://x.com/"><i class="fab fa-twitter"></i></a>
           </div>
         </div>
         <div class="footer-col">
           <h4>Contact Info</h4>
-          <p>Email: support@disneystore.com</p>
-          <p>Phone: +1 (800) 123-4567</p>
+          <p>Email: support@breakfast.com</p>
+          <p>Phone: +20 123 456 7890</p>
         </div>
       </div>
       <div class="copyright">
-        <p>&copy; 2025 The Magical Disney Store. All rights reserved.</p>
+        <p>&copy; 2025 BreakFast Café. All rights reserved.</p>
       </div>
     </footer>
 

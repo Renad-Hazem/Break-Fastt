@@ -3,8 +3,6 @@
 /* --- Contact Hero Section --- */
 .contact-hero {
   height: 30vh;
-  background: url("https://via.placeholder.com/1500x300/e91e63/FFFFFF?text=Get+In+Touch+Banner")
-    center/cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -13,19 +11,15 @@
   margin-top: -1px;
 }
 
-.contact-hero .overlay {
-  background-color: rgba(136, 14, 79, 0.6); /* Dark pink overlay */
-}
-
 .contact-hero h1 {
   font-size: 3rem;
-  color: var(--white);
+  color: #4b3621;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 .contact-hero p {
   font-size: 1.1rem;
-  color: var(--pink-200);
+  color: #6f4e37;
 }
 
 /* --- Main Contact Layout --- */
@@ -39,7 +33,7 @@
   margin: 0 auto;
   background-color: var(--white);
   border-radius: 15px;
-  box-shadow: var(--shadow-medium);
+  box-shadow: 0 0 9px rgba(78, 55, 38, 0.4);
   overflow: hidden;
   flex-wrap: wrap;
 }
