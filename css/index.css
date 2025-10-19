@@ -127,8 +127,8 @@ a {
 }
 
 .slider {
-  width: 100%; /* خلي العرض أكبر شوية */
-  height: 650px; /* قلل أو زود حسب رغبتك */
+  width: 100%;
+  height: 650px;
   overflow: hidden;
   position: relative;
 }

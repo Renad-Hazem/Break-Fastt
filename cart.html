@@ -50,9 +50,7 @@
                 <th>Remove</th>
               </tr>
             </thead>
-            <tbody id="cartItems">
-              <!-- Items will be dynamically inserted here -->
-            </tbody>
+            <tbody id="cartItems"></tbody>
           </table>
         </section>
 
@@ -115,10 +113,9 @@
     </footer>
 
     <script>
-      const cartItemsContainer = document.getElementById("cartItems");
+      const cartItemsContainer = document.getElementById("cartItems"); // المكان اللى هيتعرض فيه المنتجات
       const subtotalEl = document.querySelector(".subtotal-amount");
       const totalEl = document.querySelector(".total-amount");
-      const cartCountEl = document.querySelector(".cart-count");
       const checkoutBtn = document.querySelector(".checkout-btn");
 
       let cart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -156,10 +153,6 @@
 
         subtotalEl.textContent = `$${subtotal.toFixed(2)}`;
         totalEl.textContent = `$${subtotal.toFixed(2)}`;
-        cartCountEl.textContent = cart.reduce(
-          (acc, item) => acc + item.quantity,
-          0
-        );
       }
 
       // Update quantity

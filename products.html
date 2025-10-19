@@ -57,10 +57,6 @@
       </button>
     </div>
     <main>
-      <h2
-        id="cartoonTitle"
-        style="text-align: center; margin: 20px 0; color: #4b3621"
-      ></h2>
       <div class="products-grid" id="productsContainer"></div>
     </main>
 
@@ -1113,17 +1109,14 @@
         },
       };
 
-      let currentCartoon = localStorage.getItem("selectedCartoon") || "frozen";
+      let currentShop = localStorage.getItem("selectedShop") || "";
       let currentCategory = "coffee";
 
       const productsContainer = document.getElementById("productsContainer");
-      const cartoonTitleElement = document.getElementById("cartoonTitle");
       const filterButtons = document.querySelectorAll(".filter-btn");
 
-      function displayProducts(productsArray, cartoonName) {
+      function displayProducts(productsArray, shopName) {
         productsContainer.innerHTML = "";
-
-        cartoonTitleElement.textContent = `Shop The Magical World of ${cartoonName.toUpperCase()}`;
 
         if (productsArray && productsArray.length > 0) {
           productsArray.forEach((product) => {
@@ -1139,34 +1132,37 @@
 
                   <p class="price">$${numericPrice.toFixed(2)}</p>
 
-                  <label for="qty-${product.name.replace(
-                    /\s/g,
-                    "-"
-                  )}">Quantity:</label>
-                  <input type="number" id="qty-${product.name.replace(
-                    /\s/g,
-                    "-"
-                  )}" class="quantity-input" value="0" min="1">
+                 <label for="qty-${product.name.replace(
+                   /\s/g,
+                   "-"
+                 )}">Quantity:</label>
 
-                  <button class="add-btn" data-name="${
-                    product.name
-                  }" data-price="${numericPrice}"
-                          onclick="addToCart('${
-                            product.name
-                          }', ${numericPrice}, document.getElementById('qty-${product.name.replace(
+<input type="number"
+       id="qty-${product.name.replace(/\s/g, "-")}"
+       class="quantity-input"
+       value="0"
+       min="1">
+
+<button class="add-btn"
+        data-name="${product.name}"
+        data-price="${numericPrice}"
+        onclick="addToCart('${
+          product.name
+        }', ${numericPrice}, document.getElementById('qty-${product.name.replace(
               /\s/g,
               "-"
-            )}'))"
->
-                      <i class="fas fa-shopping-cart"></i> Add to Cart
-                  </button>
+            )}'))">
+  <i class="fas fa-shopping-cart"></i> Add to Cart
+</button>
+
+                     
               `;
             productsContainer.appendChild(productCard);
           });
         } else {
           productsContainer.innerHTML = `
               <p style="grid-column: 1 / -1; text-align: center; font-size: 1.2rem; color: #d81b60;">
-                  Sorry! No ${currentCategory} products found for ${cartoonName.toUpperCase()} yet.
+                  Sorry! No ${currentCategory} products found for ${shopName.toUpperCase()} yet.
               </p>
           `;
         }
@@ -1180,9 +1176,9 @@
         );
         clickedButton.classList.add("active", "chosenBtn");
 
-        const cartoonProducts = productsData[currentCategory][currentCartoon];
+        const shopProducts = productsData[currentCategory][currentShop];
 
-        displayProducts(cartoonProducts, currentCartoon);
+        displayProducts(shopProducts, currentShop);
       };
 
       function initializeProductsPage() {
@@ -1193,51 +1189,23 @@
           defaultButton.classList.add("active", "chosenBtn");
         }
 
-        const initialProducts = productsData[currentCategory][currentCartoon];
+        const initialProducts = productsData[currentCategory][currentShop];
 
-        displayProducts(initialProducts, currentCartoon);
+        displayProducts(initialProducts, currentShop);
       }
 
       window.onload = initializeProductsPage;
-
-      function selectCartoon(cartoonName) {
-        localStorage.setItem("selectedCartoon", cartoonName.toLowerCase());
-
-        window.location.href = "products.html";
-      }
-
-      function updateTotalDisplay() {
-        const cart = JSON.parse(localStorage.getItem("cart")) || [];
-        const totalPriceEl = document.getElementById("totalPrice");
-        const cartCountEl = document.querySelector(".cart-count");
-
-        let total = 0;
-        let totalItems = 0;
-
-        cart.forEach((item) => {
-          total += item.price * item.quantity;
-          totalItems += item.quantity;
-        });
-
-        if (totalPriceEl) {
-          totalPriceEl.textContent = `$${total.toFixed(2)}`;
-        }
-
-        if (cartCountEl) {
-          cartCountEl.textContent = totalItems;
-        }
-      }
 
       window.addToCart = function (productName, productPrice, quantityElement) {
         const price = parseFloat(productPrice);
         const quantity = parseInt(quantityElement.value);
 
         let image = "";
-        let cartoonName = currentCartoon;
+        let shopName = currentShop;
 
         const categoryData = productsData[currentCategory];
-        if (categoryData && categoryData[currentCartoon]) {
-          const productFound = categoryData[currentCartoon].find(
+        if (categoryData && categoryData[currentShop]) {
+          const productFound = categoryData[currentShop].find(
             (p) => p.name === productName
           );
           if (productFound) {
@@ -1250,7 +1218,7 @@
           price: price,
           quantity: quantity,
           image: image,
-          character: cartoonName,
+          character: shopName,
         };
 
         let cart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -1274,20 +1242,6 @@
 
         alert(`${quantity} x ${productName} added to your cart!`);
       };
-
-      function initializeProductsPage() {
-        const defaultButton = document.querySelector(
-          `.filter-btn[data-type="${currentCategory}"]`
-        );
-        if (defaultButton) {
-          defaultButton.classList.add("active", "chosenBtn");
-        }
-
-        const initialProducts = productsData[currentCategory][currentCartoon];
-
-        displayProducts(initialProducts, currentCartoon);
-      }
-      window.onload = initializeProductsPage;
     </script>
   </body>
 </html>

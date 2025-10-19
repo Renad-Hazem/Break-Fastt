@@ -72,43 +72,43 @@
 
     <h2 class="title" id="menu-section">Choose Your Favorite Shop</h2>
     <div class="cartoon-grid">
-      <div class="card" onclick="selectCartoon('cilantro')">
+      <div class="card" onclick="selectedShop('cilantro')">
         <img src="media/cilantro.jpg" alt="Frozen" />
         <h3>Cilantro</h3>
       </div>
-      <div class="card" onclick="selectCartoon('koffeKulture')">
+      <div class="card" onclick="selectedShop('koffeKulture')">
         <img src="media/koffekulture.jpg" alt="Barbie" />
         <h3>Koffe Kulture</h3>
       </div>
-      <div class="card" onclick="selectCartoon('cinnabon')">
+      <div class="card" onclick="selectedShop('cinnabon')">
         <img src="media/cinabbon.jpg" alt="The Incredibles" />
         <h3>Cinnabon</h3>
       </div>
-      <div class="card" onclick="selectCartoon('starbucks')">
+      <div class="card" onclick="selectedShop('starbucks')">
         <img src="media/starbucks.jpg" alt="Trolls" />
         <h3>Starbucks</h3>
       </div>
-      <div class="card" onclick="selectCartoon('dunkin')">
+      <div class="card" onclick="selectedShop('dunkin')">
         <img src="media/dunkin.jpg" alt="Inside Out" />
         <h3>Dunkin</h3>
       </div>
-      <div class="card" onclick="selectCartoon('krispyKreame')">
+      <div class="card" onclick="selectedShop('krispyKreame')">
         <img src="media/kr.jpg" alt="Encanto" />
         <h3>Krispy Kreame</h3>
       </div>
-      <div class="card" onclick="selectCartoon('ninteeneighty')">
+      <div class="card" onclick="selectedShop('ninteeneighty')">
         <img src="media/1980.jpg" alt="MICKEYMOUSE" />
         <h3>1980</h3>
       </div>
-      <div class="card" onclick="selectCartoon('alAbed')">
+      <div class="card" onclick="selectedShop('alAbed')">
         <img src="media/al.jpg" alt="Toy Story" />
         <h3>العبد</h3>
       </div>
-      <div class="card" onclick="selectCartoon('ninetwonine')">
+      <div class="card" onclick="selectedShop('ninetwonine')">
         <img src="media/929.jpg" alt="DisneyPrincess" />
         <h3>929</h3>
       </div>
-      <div class="card" onclick="selectCartoon('katura')">
+      <div class="card" onclick="selectedShop('katura')">
         <img src="media/katura.jpg" alt="Miraculous" />
         <h3>Katura</h3>
       </div>
@@ -262,12 +262,9 @@
         counter++;
         if (counter > totalSlides) counter = 1;
       }, 5000);
-      document.getElementById("cartoon-section").scrollIntoView({
-        behavior: "smooth",
-      });
 
-      function selectCartoon(cartoonName) {
-        localStorage.setItem("selectedCartoon", cartoonName);
+      function selectedShop(shopName) {
+        localStorage.setItem("selectedShop", shopName);
 
         window.location.href = "products.html";
       }

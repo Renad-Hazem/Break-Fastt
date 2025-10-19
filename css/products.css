@@ -107,7 +107,7 @@ main {
 
 /* --- Product Card --- */
 .product-card {
-  background: var(--pink-50); /* خلفية كريمية */
+  background: var(--pink-50);
   border-radius: 18px;
   border: 1px solid var(--pink-200);
   box-shadow: var(--shadow-light);
